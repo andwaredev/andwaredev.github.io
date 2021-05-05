@@ -12,7 +12,16 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint:eslint": "eslint --ext .js,.jsx,.ts,.tsx .",
+    "lint:eslint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx .",
+    "lint:prettier": "prettier --check 'src/**/*.(js|ts)?(x)'",
+    "lint:prettier:fix": "prettier --write 'src/**/*.(js|ts)?(x)'",
+    "lint:tslint": "tslint  'src/**/*.ts?(x)'",
+    "lint:tslint:fix": "tslint --fix 'src/**/*.ts?(x)'",
+    "lint": "yarn lint:eslint && yarn lint:tslint && yarn lint:prettier",
+    "lint:fix": "yarn lint:eslint:fix && yarn lint:tslint:fix && yarn lint:prettier:fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.12.0",
@@ -32,7 +41,9 @@
     "eslint-webpack-plugin": "^2.5.4",
     "gatsby-plugin-eslint": "^3.0.0",
     "gatsby-plugin-tslint": "^0.0.2",
+    "husky": ">=6",
     "install-peers": "^1.0.3",
+    "lint-staged": ">=10",
     "prettier": "^2.2.1",
     "tslint": "^6.1.3",
     "tslint-loader": "^3.5.4",
