@@ -1,4 +1,3 @@
 src/**/*.(js|ts)?(x):
-  - eslint --fix
-  - tslint --fix
-  - prettier --write
+  - yarn test
+  - yarn lint:fix

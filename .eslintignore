@@ -1,3 +1,6 @@
 .cache/*
 node_modules/*
 public/*
+__mocks__
+jest-preprocess.js
+loadershim.js
