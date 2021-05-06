@@ -1,4 +1,10 @@
 import React from 'react';
 
-const Navbar = (): JSX.Element => <div />;
+export interface NavbarProps {
+  className?: string;
+}
+
+const Navbar = ({ className }: NavbarProps): JSX.Element => (
+  <div className={className}>Navbar</div>
+);
 export default Navbar;

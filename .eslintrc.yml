@@ -3,9 +3,9 @@ env:
   es2021: true
   jest/globals: true
 extends:
-  - 'plugin:react/recommended'
   - 'plugin:@typescript-eslint/recommended'
   - airbnb
+  - 'plugin:react/recommended'
   - 'plugin:jest/recommended'
   - 'plugin:jest/style'
   - 'plugin:import/errors'
@@ -19,8 +19,8 @@ parserOptions:
   ecmaVersion: 12
   sourceType: module
 plugins:
-  - react
   - '@typescript-eslint'
+  - react
   - jest
   - import
   - prettier
@@ -36,6 +36,7 @@ rules:
     - error
     - devDependencies:
         - '**/*.test.ts?(x)'
+        - '**/*.stories.ts?(x)'
   import/extensions:
     - error
     - ignorePackages
@@ -43,6 +44,10 @@ rules:
       jsx: never
       ts: never
       tsx: never
-
+overrides:
+  - files:
+      - '**/*.stories.ts?(x)'
+    rules:
+      react/jsx-props-no-spreading: off
 globals:
   JSX: true

@@ -153,9 +153,9 @@ const IndexPage = (): JSX.Element => (
       </span>
     </p>
     <ul style={listStyles}>
-      <li style={docLinkStyle}>
+      <li style={docLinkStyle as React.CSSProperties}>
         <a
-          style={linkStyle}
+          style={linkStyle as React.CSSProperties}
           href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
         >
           {docLink.text}
@@ -165,13 +165,16 @@ const IndexPage = (): JSX.Element => (
         <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
           <span>
             <a
-              style={linkStyle}
+              style={linkStyle as React.CSSProperties}
               href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
             >
               {link.text}
             </a>
             {link.badge && (
-              <span style={badgeStyle} aria-label="New Badge">
+              <span
+                style={badgeStyle as React.CSSProperties}
+                aria-label="New Badge"
+              >
                 NEW!
               </span>
             )}
