@@ -23,6 +23,7 @@
     "lint:fix": "yarn lint:eslint:fix && yarn lint:tslint:fix && yarn lint:prettier:fix",
     "prepare": "husky install",
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
@@ -39,6 +40,7 @@
     "gatsby": "^3.4.0",
     "gatsby-plugin-sass": "^4.4.0",
     "gatsby-plugin-styled-components": "^4.4.0",
+    "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-bulma-components": "4.0.3",
     "react-dom": "^17.0.1",
