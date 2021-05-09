@@ -1,12 +1,16 @@
 import React from 'react';
 import { Navbar as BulmaNavbar } from 'react-bulma-components';
+import classNames, { Value as ClassValue } from 'classnames';
+import { CLASS_NAME_BASE } from '../../constants';
 
 export interface NavbarProps {
-  className?: string;
+  className?: ClassValue;
 }
 
+const baseClassName = `${CLASS_NAME_BASE}-navbar`;
+
 const Navbar = ({ className }: NavbarProps): JSX.Element => (
-  <BulmaNavbar className={className}>
+  <BulmaNavbar className={classNames(baseClassName, className)}>
     <BulmaNavbar.Brand>
       <BulmaNavbar.Item href="#">
         <img
