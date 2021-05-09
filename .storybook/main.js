@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -39,6 +41,12 @@ module.exports = {
           require.resolve('babel-plugin-remove-graphql-queries'),
         ],
       },
+    });
+
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ['style-loader', 'css-loader', 'sass-loader'],
+      include: path.resolve(__dirname, '../'),
     });
 
     config.resolve.extensions.push('.ts', '.tsx');
