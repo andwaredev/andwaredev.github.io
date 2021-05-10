@@ -11,25 +11,37 @@ export type IconProp = ComponentPropsWithoutRef<typeof FontAwesomeIcon>['icon'];
 
 type GatsbyLinkProps = ComponentPropsWithoutRef<typeof GatsbyLink>;
 
-interface NavbarLinkInterface {
-  align?: 'right';
+interface LinkDataInterface {
   href?: string;
   icon?: IconProp;
   label: string;
   to?: GatsbyLinkProps['to'];
 }
 
-export type NavbarLink = NavbarLinkInterface &
-  (
-    | {
-        to?: undefined;
-        href: string;
-      }
-    | {
-        to: string;
-        href?: undefined;
-      }
-  );
+type LinkHrefRequired =
+  | {
+      to?: undefined;
+      href: string;
+    }
+  | {
+      to: string;
+      href?: undefined;
+    };
+
+interface FooterLinkInterface extends LinkDataInterface {
+  icon: IconProp;
+}
+
+export type FooterLink = FooterLinkInterface &
+  LinkHrefRequired & {
+    align?: 'bottom';
+  };
+
+export type LinkData = LinkDataInterface & LinkHrefRequired;
+
+export type NavbarLink = LinkData & {
+  align?: 'right';
+};
 
 export interface ImgProps {
   src: string;

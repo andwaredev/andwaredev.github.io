@@ -15,3 +15,9 @@ it('sets custom className if provided', () => {
   );
   expect(container.firstChild).toHaveClass(className);
 });
+
+it('can set additional bulma icon props', () => {
+  const title = 'some-title';
+  const { container } = render(<Icon icon={faCheckSquare} title={title} />);
+  expect(container.firstChild).toHaveAttribute('title', title);
+});

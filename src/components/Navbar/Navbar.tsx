@@ -3,7 +3,6 @@ import { Navbar as BulmaNavbar } from 'react-bulma-components';
 import { Link as GatsbyLink } from 'gatsby';
 import classNames, { Value as ClassValue } from 'classnames';
 import groupBy from 'lodash/groupBy';
-import isUndefined from 'lodash/isUndefined';
 import {
   CLASS_NAME_BASE,
   ImgProps,
@@ -11,7 +10,8 @@ import {
   NavbarLink,
   navbarLinks,
 } from '../../constants';
-import Icon from '../Icon/Icon';
+import { createLinkKey, isLinkDataGatsbyLinkDef } from '../utils';
+import Icon from '../Icon';
 
 const BRAND_IMG_HEIGHT = 28;
 const BRAND_IMG_WIDTH = 112;
@@ -35,12 +35,9 @@ const CLASS_NAMES = {
 
 const isAlignRight = ({ align }: NavbarLink): boolean => align === 'right';
 
-const mapLinkToBulmaNavbarItem = ({
-  href,
-  icon,
-  label,
-  to,
-}: NavbarLink): JSX.Element => {
+const mapLinkToBulmaNavbarItem = (link: NavbarLink): JSX.Element => {
+  const { href, icon, label, to } = link;
+
   const content = (
     <>
       {icon && <Icon className={CLASS_NAMES.icon} icon={icon} />}
@@ -48,10 +45,10 @@ const mapLinkToBulmaNavbarItem = ({
     </>
   );
 
-  const key = `${label}:${to}`;
-  if (!isUndefined(to)) {
+  const key = createLinkKey(link);
+  if (isLinkDataGatsbyLinkDef(link)) {
     return (
-      <BulmaNavbar.Item key={key} to={to} renderAs={GatsbyLink}>
+      <BulmaNavbar.Item key={key} to={to as string} renderAs={GatsbyLink}>
         {content}
       </BulmaNavbar.Item>
     );
