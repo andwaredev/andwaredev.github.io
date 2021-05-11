@@ -72,34 +72,57 @@ describe('links', () => {
       },
     ];
 
-    it('just bottom links', () => {
-      const { getByRole } = render(<Footer links={bottomLinks} />);
-
-      bottomLinks.forEach(({ label, to }) => {
-        expect(
-          getByRole('link', {
-            name: buildLinkNameMatcher(label),
-          }),
-        ).toHaveAttribute('href', to);
-      });
-    });
-
-    it('both full icon and bottom links', () => {
-      const { getByRole } = render(
-        <Footer links={[...links, ...bottomLinks]} />,
-      );
-
-      const lastFullIconLink = getByRole('link', {
-        name: new RegExp(links[links.length - 1].label),
+    describe('just bottom links', () => {
+      it('does not render full icon links section if empty', () => {
+        const { container } = render(<Footer links={[]} />);
+        expect(container.children).toHaveLength(1);
       });
 
-      bottomLinks.forEach(({ label, to }) => {
-        const bottomLink = getByRole('link', {
-          name: buildLinkNameMatcher(label),
+      it('renders bottom links with labels', () => {
+        const { getByRole } = render(<Footer links={bottomLinks} />);
+
+        bottomLinks.forEach(({ label, to }) => {
+          expect(
+            getByRole('link', {
+              name: buildLinkNameMatcher(label),
+            }),
+          ).toHaveAttribute('href', to);
         });
-        expect(bottomLink).toHaveAttribute('href', to);
-        expect(bottomLink.compareDocumentPosition(lastFullIconLink)).toEqual(2);
       });
     });
+
+    describe('both full icon and bottom links', () => {
+      it('renders both links sections', () => {
+        const { container } = render(
+          <Footer links={[...links, ...bottomLinks]} />,
+        );
+        expect(container.firstChild?.childNodes).toHaveLength(2);
+      });
+
+      it('renders both full icon and bottom links and labels', () => {
+        const { getByRole } = render(
+          <Footer links={[...links, ...bottomLinks]} />,
+        );
+
+        const lastFullIconLink = getByRole('link', {
+          name: new RegExp(links[links.length - 1].label),
+        });
+
+        bottomLinks.forEach(({ label, to }) => {
+          const bottomLink = getByRole('link', {
+            name: buildLinkNameMatcher(label),
+          });
+          expect(bottomLink).toHaveAttribute('href', to);
+          expect(bottomLink.compareDocumentPosition(lastFullIconLink)).toEqual(
+            2,
+          );
+        });
+      });
+    });
+  });
+
+  it('does not render bottom link section if no bottom links', () => {
+    const { container } = render(<Footer links={links} />);
+    expect(container.firstChild?.childNodes).toHaveLength(1);
   });
 });

@@ -8,8 +8,9 @@ import {
 import { Link as GatsbyLink } from 'gatsby';
 import classNames, { Value as ClassValue } from 'classnames';
 import groupBy from 'lodash/groupBy';
+import isEmpty from 'lodash/isEmpty';
 import styled from 'styled-components';
-import { CLASS_NAME_BASE, FooterLink } from '../../constants';
+import { CLASS_NAME_BASE, FooterLink, footerLinks } from '../../constants';
 import { createLinkKey, isLinkDataGatsbyLinkDef } from '../utils';
 import Icon from '../Icon';
 
@@ -21,6 +22,10 @@ export interface FooterProps {
   className?: ClassValue;
   links?: FooterLink[];
 }
+
+export const defaultFooterProps: FooterProps = {
+  links: footerLinks,
+};
 
 const baseClassName = `${CLASS_NAME_BASE}-footer`;
 const CLASS_NAMES = {
@@ -75,7 +80,10 @@ const mapLinkToFooterItem = (
   );
 };
 
-const Footer = ({ className, links }: FooterProps): JSX.Element => {
+const Footer = ({
+  className,
+  links = defaultFooterProps.links,
+}: FooterProps): JSX.Element => {
   const { false: iconLinks = [], true: bottomLinks = [] } = groupBy(
     links,
     isAlignBottom,
@@ -83,29 +91,33 @@ const Footer = ({ className, links }: FooterProps): JSX.Element => {
 
   return (
     <BulmaFooter className={classNames(CLASS_NAMES.base, className)}>
-      <Container className={CLASS_NAMES.container}>
-        <Content className={CLASS_NAMES.content}>
-          <Columns className={CLASS_NAMES.columnsContainer}>
-            {iconLinks?.map((link) => mapLinkToFooterItem(link))}
-          </Columns>
-        </Content>
-      </Container>
-      <Container
-        className={classNames(
-          CLASS_NAMES.container,
-          CLASS_NAMES.bottomContainerModifier,
-        )}
-      >
-        <Content className={CLASS_NAMES.content}>
-          <Columns className={CLASS_NAMES.columnsContainer}>
-            {bottomLinks?.map((link) =>
-              mapLinkToFooterItem(link, {
-                fullIcon: false,
-              }),
-            )}
-          </Columns>
-        </Content>
-      </Container>
+      {!isEmpty(iconLinks) && (
+        <Container className={CLASS_NAMES.container}>
+          <Content className={CLASS_NAMES.content}>
+            <Columns className={CLASS_NAMES.columnsContainer}>
+              {iconLinks?.map((link) => mapLinkToFooterItem(link))}
+            </Columns>
+          </Content>
+        </Container>
+      )}
+      {!isEmpty(bottomLinks) && (
+        <Container
+          className={classNames(
+            CLASS_NAMES.container,
+            CLASS_NAMES.bottomContainerModifier,
+          )}
+        >
+          <Content className={CLASS_NAMES.content}>
+            <Columns className={CLASS_NAMES.columnsContainer}>
+              {bottomLinks?.map((link) =>
+                mapLinkToFooterItem(link, {
+                  fullIcon: false,
+                }),
+              )}
+            </Columns>
+          </Content>
+        </Container>
+      )}
     </BulmaFooter>
   );
 };

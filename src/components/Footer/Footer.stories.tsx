@@ -19,7 +19,10 @@ const Template: Story<FooterProps> = (props: FooterProps) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
+Default.args = {};
+
+export const Customized = Template.bind({});
+Customized.args = {
   links: [
     {
       label: 'LinkedIn',

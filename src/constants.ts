@@ -1,7 +1,12 @@
 import { ComponentPropsWithoutRef } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faGithub,
+  faLinkedin,
+  faNpm,
+} from '@fortawesome/free-brands-svg-icons';
+import { faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 /* eslint-disable import/prefer-default-export */
 export const CLASS_NAME_BASE = 'andwaredev';
@@ -49,6 +54,41 @@ export interface ImgProps {
 }
 
 // Constant data, text, content, etc
+const mailToHref = 'mailto:andrew@andrewware.xyz';
+const gitHubHref = 'https://github.com/andwaredev';
+const linkedInHref = 'https://www.linkedin.com/in/andrew-ware-93340aa8/';
+const npmHref = 'https://www.npmjs.com/~andrew-ware';
+const gitHubRepoHref = `${gitHubHref}/andwaredev.github.io`;
+
+export const footerLinks: FooterLink[] = [
+  {
+    label: 'LinkedIn',
+    to: linkedInHref,
+    icon: faLinkedin,
+  },
+  {
+    label: 'GitHub',
+    to: gitHubHref,
+    icon: faGithub,
+  },
+  {
+    label: 'NPM',
+    to: npmHref,
+    icon: faNpm,
+  },
+  {
+    label: 'Contact Me',
+    href: mailToHref,
+    icon: faEnvelope,
+  },
+  {
+    label: 'Site Source code',
+    href: gitHubRepoHref,
+    icon: faCode,
+    align: 'bottom',
+  },
+];
+
 export const navbarLinks: NavbarLink[] = [
   {
     label: 'Home',
@@ -60,12 +100,12 @@ export const navbarLinks: NavbarLink[] = [
   },
   {
     label: 'Contact',
-    href: 'mailto:andrew@andrewware.xyz',
+    href: mailToHref,
   },
   {
     label: 'Github',
     icon: faGithub,
-    to: 'https://github.com/andwaredev',
+    to: gitHubHref,
     align: 'right',
   },
 ];
