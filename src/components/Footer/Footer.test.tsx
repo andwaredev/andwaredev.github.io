@@ -74,8 +74,8 @@ describe('links', () => {
 
     describe('just bottom links', () => {
       it('does not render full icon links section if empty', () => {
-        const { container } = render(<Footer links={[]} />);
-        expect(container.children).toHaveLength(1);
+        const { container } = render(<Footer links={bottomLinks} />);
+        expect(container.firstChild?.childNodes).toHaveLength(1);
       });
 
       it('renders bottom links with labels', () => {
