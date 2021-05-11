@@ -82,7 +82,7 @@ export const footerLinks: FooterLink[] = [
     icon: faEnvelope,
   },
   {
-    label: 'Site Source code',
+    label: 'Site Source Code',
     href: gitHubRepoHref,
     icon: faCode,
     align: 'bottom',

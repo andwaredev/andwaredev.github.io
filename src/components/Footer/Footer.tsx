@@ -18,6 +18,17 @@ const InlineFlex = styled.div`
   display: inline-flex;
 `;
 
+const BottomLinksContainer = styled(Container)`
+  @media screen and (max-width: 768px) {
+    /**
+     * !important required to override
+     * Bulma util class ".mt-6"
+     * which also uses !important
+     */
+    margin-top: 0.75rem !important;
+  }
+`;
+
 export interface FooterProps {
   className?: ClassValue;
   links?: FooterLink[];
@@ -101,7 +112,7 @@ const Footer = ({
         </Container>
       )}
       {!isEmpty(bottomLinks) && (
-        <Container
+        <BottomLinksContainer
           className={classNames(
             CLASS_NAMES.container,
             CLASS_NAMES.bottomContainerModifier,
@@ -116,7 +127,7 @@ const Footer = ({
               )}
             </Columns>
           </Content>
-        </Container>
+        </BottomLinksContainer>
       )}
     </BulmaFooter>
   );
