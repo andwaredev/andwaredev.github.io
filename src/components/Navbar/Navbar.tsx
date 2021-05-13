@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ComponentPropsWithoutRef, useState } from 'react';
 import { Navbar as BulmaNavbar } from 'react-bulma-components';
 import { Link as GatsbyLink } from 'gatsby';
 import classNames, { Value as ClassValue } from 'classnames';
@@ -16,7 +16,8 @@ import Icon from '../Icon';
 const BRAND_IMG_HEIGHT = 28;
 const BRAND_IMG_WIDTH = 112;
 
-export interface NavbarProps {
+export interface NavbarProps
+  extends ComponentPropsWithoutRef<typeof BulmaNavbar> {
   brandImg?: ImgProps;
   className?: ClassValue;
   links?: NavbarLink[];
@@ -65,6 +66,8 @@ const Navbar = ({
   brandImg = defaultNavbarProps.brandImg,
   className,
   links = defaultNavbarProps.links,
+  fixed = 'top',
+  ...bulmaNavbarProps
 }: NavbarProps): JSX.Element => {
   const [burgerActive, setBurgerActive] = useState<boolean>(false);
 
@@ -86,6 +89,8 @@ const Navbar = ({
     <BulmaNavbar
       className={classNames(CLASS_NAMES.base, className)}
       active={burgerActive}
+      fixed={fixed}
+      {...bulmaNavbarProps} /* eslint-disable-line react/jsx-props-no-spreading */
     >
       <BulmaNavbar.Brand>
         <BulmaNavbar.Item renderAs={GatsbyLink} to="/">

@@ -31,7 +31,7 @@ describe('links', () => {
 
   const buildLinkNameMatcher = (label: string) => new RegExp(`${label}+`);
 
-  it('renders a link in navbar for each item in links prop', () => {
+  it('renders a link in footer for each item in links prop', () => {
     const { getByRole } = render(<Footer links={links} />);
 
     links.forEach(({ label, to }) => {
