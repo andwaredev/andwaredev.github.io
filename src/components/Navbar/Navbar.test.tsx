@@ -114,3 +114,13 @@ it('clicking burger menu button changes active status of navbar', () => {
 
   expect(navbarMenu).toHaveClass('is-active');
 });
+
+it('can set additional bulma navbar props', () => {
+  const { container } = render(<Navbar transparent />);
+  expect(container.firstChild).toHaveClass('is-transparent');
+});
+
+it('defaults navbar fixed to top', () => {
+  const { container } = render(<Navbar />);
+  expect(container.firstChild).toHaveClass('is-fixed-top');
+});

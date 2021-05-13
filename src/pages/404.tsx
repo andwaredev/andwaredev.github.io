@@ -1,12 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
+import PageLayout from '../components/PageLayout/PageLayout';
 
 // styles
-const pageStyles = {
-  color: '#232129',
-  padding: '96px',
-  fontFamily: '-apple-system, Roboto, sans-serif, serif',
-};
 const headingStyles = {
   marginTop: 0,
   marginBottom: 64,
@@ -14,7 +10,7 @@ const headingStyles = {
 };
 
 const paragraphStyles = {
-  marginBottom: 48,
+  // marginBottom: 48,
 };
 
 const codeStyles = {
@@ -27,7 +23,7 @@ const codeStyles = {
 
 // markup
 const NotFoundPage = (): JSX.Element => (
-  <main style={pageStyles}>
+  <PageLayout>
     <title>Not found</title>
     <h1 style={headingStyles}>Page not found</h1>
     <p style={paragraphStyles}>
@@ -48,7 +44,7 @@ const NotFoundPage = (): JSX.Element => (
       <br />
       <Link to="/">Go home</Link>.
     </p>
-  </main>
+  </PageLayout>
 );
 
 export default NotFoundPage;
