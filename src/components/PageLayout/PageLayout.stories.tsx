@@ -1,7 +1,10 @@
 import React from 'react';
 import { Story } from '@storybook/react';
 import PageLayout, { PageLayoutProps } from './PageLayout';
-import MainContent from '../MainContent/MainContent';
+import WelcomeHero from '../WelcomeHero/WelcomeHero';
+import ProfileImageSection from '../ProfileImageSection/ProfileImageSection';
+import BioSection from '../BioSection/BioSection';
+import ProjectsSection from '../ProjectsSection/ProjectsSection';
 
 export default {
   title: 'Components/PageLayout',
@@ -10,7 +13,10 @@ export default {
 
 const Template: Story<PageLayoutProps> = (props: PageLayoutProps) => (
   <PageLayout {...props}>
-    <MainContent />
+    <WelcomeHero />
+    <ProfileImageSection />
+    <BioSection />
+    <ProjectsSection />
   </PageLayout>
 );
 
