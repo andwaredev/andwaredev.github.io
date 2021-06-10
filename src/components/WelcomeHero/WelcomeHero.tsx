@@ -29,7 +29,7 @@ const WelcomeHero = ({ className }: WelcomeHeroProps): JSX.Element => (
           <Heading renderAs="h1">{welcomeHeroContent.heading}</Heading>
           <Heading
             className={CLASS_NAMES.subtitle}
-            renderAs="h5"
+            renderAs="p"
             size={5}
             subtitle
           >

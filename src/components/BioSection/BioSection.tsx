@@ -14,7 +14,7 @@ const CLASS_NAMES = {
 };
 
 const BioSection = ({ className }: BioSectionProps): JSX.Element => (
-  <Hero className={classNames(CLASS_NAMES.base, className)} color="primary">
+  <Hero className={classNames(CLASS_NAMES.base, className)} color="dark">
     <Hero.Body>
       <Container>
         <Content className={CLASS_NAMES.content}>

@@ -30,7 +30,7 @@ const CLASS_NAMES = {
 const ProfileImageSection = ({
   className,
 }: ProfileImageSectionProps): JSX.Element => (
-  <Hero color="light" className={classNames(CLASS_NAMES.base, className)}>
+  <Hero className={classNames(CLASS_NAMES.base, className)}>
     <Hero.Body className={CLASS_NAMES.heroBody}>
       <Container>
         <Content className={CLASS_NAMES.content}>

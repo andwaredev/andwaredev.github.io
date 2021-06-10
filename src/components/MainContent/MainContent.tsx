@@ -4,6 +4,7 @@ import { CLASS_NAME_BASE } from '../../constants';
 import WelcomeHero from '../WelcomeHero/WelcomeHero';
 import ProfileImageSection from '../ProfileImageSection/ProfileImageSection';
 import BioSection from '../BioSection/BioSection';
+import ProjectsSection from '../ProjectsSection/ProjectsSection';
 
 export interface MainContentProps {
   className?: ClassValue;
@@ -19,6 +20,7 @@ const MainContent = ({ className }: MainContentProps): JSX.Element => (
     <WelcomeHero />
     <ProfileImageSection />
     <BioSection />
+    <ProjectsSection />
   </div>
 );
 

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import React, { ComponentPropsWithoutRef } from 'react';
 import { Link as GatsbyLink } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -134,3 +134,45 @@ export const profilePhotoImg: ImgProps = {
 
 export const bioSectionText =
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+
+export interface ProjectCardProps {
+  img?: ImgProps;
+  heading: string;
+  subHeading?: string;
+  content: React.ReactNode;
+}
+
+const uscisProject: ProjectCardProps = {
+  img: {
+    alt: '64x64',
+    src: 'http://bulma.io/images/placeholders/128x128.png',
+  },
+  heading: 'USCIS',
+  subHeading: 'MyE-Verify',
+  content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+};
+
+const charterProject: ProjectCardProps = {
+  img: {
+    alt: '64x64',
+    src: 'http://bulma.io/images/placeholders/128x128.png',
+  },
+  heading: 'Charter',
+  subHeading: 'RADR',
+  content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+};
+
+const tMobileProject: ProjectCardProps = {
+  img: {
+    alt: '64x64',
+    src: 'http://bulma.io/images/placeholders/128x128.png',
+  },
+  heading: 'T-Mobile',
+  subHeading: 'Layer3 TV',
+  content:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+};
+
+export const projects = [uscisProject, charterProject, tMobileProject];
