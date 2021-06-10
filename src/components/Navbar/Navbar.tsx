@@ -1,5 +1,5 @@
 import React, { ComponentPropsWithoutRef, useState } from 'react';
-import { Navbar as BulmaNavbar } from 'react-bulma-components';
+import { Container, Navbar as BulmaNavbar } from 'react-bulma-components';
 import { Link as GatsbyLink } from 'gatsby';
 import classNames, { Value as ClassValue } from 'classnames';
 import groupBy from 'lodash/groupBy';
@@ -67,6 +67,7 @@ const Navbar = ({
   className,
   links = defaultNavbarProps.links,
   fixed = 'top',
+  transparent = true,
   ...bulmaNavbarProps
 }: NavbarProps): JSX.Element => {
   const [burgerActive, setBurgerActive] = useState<boolean>(false);
@@ -90,27 +91,30 @@ const Navbar = ({
       className={classNames(CLASS_NAMES.base, className)}
       active={burgerActive}
       fixed={fixed}
+      transparent={transparent}
       {...bulmaNavbarProps} /* eslint-disable-line react/jsx-props-no-spreading */
     >
-      <BulmaNavbar.Brand>
-        <BulmaNavbar.Item renderAs={GatsbyLink} to="/">
-          <img
-            alt={brandImgAlt}
-            src={brandImgSrc}
-            height={brandImgHeight}
-            width={brandImgWidth}
-          />
-        </BulmaNavbar.Item>
-        <BulmaNavbar.Burger onClick={handleBurgerClick} />
-      </BulmaNavbar.Brand>
-      <BulmaNavbar.Menu>
-        <BulmaNavbar.Container>
-          {leftLinks.map(mapLinkToBulmaNavbarItem)}
-        </BulmaNavbar.Container>
-        <BulmaNavbar.Container align="right">
-          {rightLinks.map(mapLinkToBulmaNavbarItem)}
-        </BulmaNavbar.Container>
-      </BulmaNavbar.Menu>
+      <Container>
+        <BulmaNavbar.Brand>
+          <BulmaNavbar.Item renderAs={GatsbyLink} to="/">
+            <img
+              alt={brandImgAlt}
+              src={brandImgSrc}
+              height={brandImgHeight}
+              width={brandImgWidth}
+            />
+          </BulmaNavbar.Item>
+          <BulmaNavbar.Burger onClick={handleBurgerClick} />
+        </BulmaNavbar.Brand>
+        <BulmaNavbar.Menu>
+          <BulmaNavbar.Container>
+            {leftLinks.map(mapLinkToBulmaNavbarItem)}
+          </BulmaNavbar.Container>
+          <BulmaNavbar.Container align="right">
+            {rightLinks.map(mapLinkToBulmaNavbarItem)}
+          </BulmaNavbar.Container>
+        </BulmaNavbar.Menu>
+      </Container>
     </BulmaNavbar>
   );
 };

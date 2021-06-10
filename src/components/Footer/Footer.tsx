@@ -18,6 +18,10 @@ const InlineFlex = styled.div`
   display: inline-flex;
 `;
 
+const PageBreak = styled.hr`
+  border-top: dotted 3px;
+`;
+
 const BottomLinksContainer = styled(Container)`
   @media screen and (max-width: 768px) {
     /**
@@ -40,8 +44,9 @@ export const defaultFooterProps: FooterProps = {
 
 const baseClassName = `${CLASS_NAME_BASE}-footer`;
 const CLASS_NAMES = {
-  base: classNames(baseClassName, 'pb-6'),
+  base: classNames(baseClassName, 'has-background-white', 'pb-6'),
   container: classNames(`${baseClassName}__container`, 'is-max-desktop'),
+  topContainerModifier: 'pt-6',
   bottomContainerModifier: 'mt-6',
   content: classNames(`${baseClassName}__content`, 'has-text-centered'),
   columnsContainer: classNames(`${baseClassName}__columns-container`, 'is-1'),
@@ -50,6 +55,13 @@ const CLASS_NAMES = {
   iconFullIconModifier: 'is-size-2',
   linkLabel: `${baseClassName}__link-label`,
   linkLabelFullIconModified: 'is-hidden-tablet',
+  pageBreak: classNames(
+    `${baseClassName}__page-break`,
+    'mt-0',
+    'mb-6',
+    'has-background-white',
+    'has-text-dark',
+  ),
 };
 
 const isAlignBottom = ({ align }: FooterLink): boolean => align === 'bottom';
@@ -102,8 +114,14 @@ const Footer = ({
 
   return (
     <BulmaFooter className={classNames(CLASS_NAMES.base, className)}>
+      <PageBreak className={CLASS_NAMES.pageBreak} />
       {!isEmpty(iconLinks) && (
-        <Container className={CLASS_NAMES.container}>
+        <Container
+          className={classNames(
+            CLASS_NAMES.container,
+            CLASS_NAMES.topContainerModifier,
+          )}
+        >
           <Content className={CLASS_NAMES.content}>
             <Columns className={CLASS_NAMES.columnsContainer}>
               {iconLinks?.map((link) => mapLinkToFooterItem(link))}

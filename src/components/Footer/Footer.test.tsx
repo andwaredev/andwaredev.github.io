@@ -75,7 +75,7 @@ describe('links', () => {
     describe('just bottom links', () => {
       it('does not render full icon links section if empty', () => {
         const { container } = render(<Footer links={bottomLinks} />);
-        expect(container.firstChild?.childNodes).toHaveLength(1);
+        expect(container.firstChild?.childNodes).toHaveLength(2); // account for page break
       });
 
       it('renders bottom links with labels', () => {
@@ -96,7 +96,7 @@ describe('links', () => {
         const { container } = render(
           <Footer links={[...links, ...bottomLinks]} />,
         );
-        expect(container.firstChild?.childNodes).toHaveLength(2);
+        expect(container.firstChild?.childNodes).toHaveLength(3); // account for page break
       });
 
       it('renders both full icon and bottom links and labels', () => {
@@ -123,6 +123,6 @@ describe('links', () => {
 
   it('does not render bottom link section if no bottom links', () => {
     const { container } = render(<Footer links={links} />);
-    expect(container.firstChild?.childNodes).toHaveLength(1);
+    expect(container.firstChild?.childNodes).toHaveLength(2); // account for page break
   });
 });
