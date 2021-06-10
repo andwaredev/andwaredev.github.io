@@ -1,12 +1,11 @@
-@import 'node_modules/bulma/bulma.sass';
+@charset "utf-8";
+@import 'node_modules/bulma/sass/utilities/initial-variables';
+@import 'node_modules/bulma/sass/utilities/functions';
 
-$custom-colors: (
-  'brand': (
-    #8a4d76,
-    #fff,
-  ),
-  'custom': (
-    #f88fa1,
-    #000,
-  ),
-);
+@import './variables';
+
+$primary: $purple;
+$success: $turquoise;
+$link: $primary;
+
+@import 'node_modules/bulma/bulma.sass';

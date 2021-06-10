@@ -14,7 +14,7 @@ export interface ProjectCardProps {
   content: React.ReactNode;
 }
 
-const baseClassName = `${CLASS_NAME_BASE}__profiles-section`;
+const baseClassName = `${CLASS_NAME_BASE}__profile-card`;
 const CLASS_NAMES = {
   base: baseClassName,
 };

@@ -124,3 +124,8 @@ it('defaults navbar fixed to top', () => {
   const { container } = render(<Navbar />);
   expect(container.firstChild).toHaveClass('is-fixed-top');
 });
+
+it('defaults navbar transparent', () => {
+  const { container } = render(<Navbar />);
+  expect(container.firstChild).toHaveClass('is-transparent');
+});
