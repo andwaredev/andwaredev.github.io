@@ -31,37 +31,17 @@ const blocks: ResumeBlock[] = [
   {
     heading: 'Foo',
     subHeading: 'Bar',
-    /* eslint-disable react/jsx-key */
-    listItems: [<span>fizz</span>, <span>buzz</span>],
   },
   {
     heading: 'Fizz',
     subHeading: 'Buzz',
-    listItems: [<span>foo</span>, <span>bar</span>],
   },
 ];
 
-it('renders block heading and subHeading for each block item provided', () => {
+it('renders block for each block item provided', () => {
   const { getByText } = renderResumeSection({ blocks });
   blocks.forEach(({ heading, subHeading }) => {
     expect(getByText(heading)).toBeInTheDocument();
     expect(getByText(subHeading)).toBeInTheDocument();
-  });
-});
-
-it('renders block list items for each block item provided', () => {
-  const { getAllByRole } = renderResumeSection({ blocks });
-  const lis = getAllByRole('listitem');
-  const providedListItems = blocks.reduce(
-    (acc, { listItems }) => acc.concat(listItems),
-    [] as React.ReactNode[],
-  );
-  expect(lis).toHaveLength(providedListItems.length);
-  lis.forEach((li, i) => {
-    const ListItemComponent = () => <li>{providedListItems[i]}</li>;
-    const { container: listItemRenderContainer } = render(
-      <ListItemComponent />,
-    );
-    expect(li).toEqual(listItemRenderContainer.firstChild);
   });
 });

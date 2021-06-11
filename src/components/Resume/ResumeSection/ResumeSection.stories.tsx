@@ -1,10 +1,16 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import { Container } from 'react-bulma-components';
 import ResumeSection, { ResumeSectionProps } from './ResumeSection';
 
 export default {
   title: 'Components/Resume/ResumeSection',
   component: ResumeSection,
+  decorators: [
+    (story: () => React.ReactNode): React.ReactNode => (
+      <Container>{story()}</Container>
+    ),
+  ],
 };
 
 const Template: Story<ResumeSectionProps> = (props: ResumeSectionProps) => (
