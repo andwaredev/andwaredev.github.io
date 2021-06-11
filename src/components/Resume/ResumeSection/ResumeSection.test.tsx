@@ -41,7 +41,7 @@ const blocks: ResumeBlock[] = [
 it('renders block for each block item provided', () => {
   const { getByText } = renderResumeSection({ blocks });
   blocks.forEach(({ heading, subHeading }) => {
-    expect(getByText(heading)).toBeInTheDocument();
-    expect(getByText(subHeading)).toBeInTheDocument();
+    expect(getByText(heading as string)).toBeInTheDocument();
+    expect(getByText(subHeading as string)).toBeInTheDocument();
   });
 });

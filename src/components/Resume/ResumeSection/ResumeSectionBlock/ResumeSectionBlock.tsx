@@ -41,12 +41,26 @@ const ResumeSectionBlock = ({
   subBlocks,
 }: ResumeSectionBlockProps): JSX.Element => (
   <div className={classNames(CLASS_NAMES.base, className)}>
-    <Heading className={CLASS_NAMES.heading} renderAs="div" size={5}>
-      {heading}
-    </Heading>
-    <Heading className={CLASS_NAMES.subHeading} renderAs="div" size={6}>
-      {subHeading}
-    </Heading>
+    {heading && (
+      <Heading
+        className={CLASS_NAMES.heading}
+        renderAs="div"
+        role="heading"
+        size={5}
+      >
+        {heading}
+      </Heading>
+    )}
+    {subHeading && (
+      <Heading
+        className={CLASS_NAMES.subHeading}
+        renderAs="div"
+        role="heading"
+        size={6}
+      >
+        {subHeading}
+      </Heading>
+    )}
     <ul>
       {listItems?.map((node, i) => (
         // eslint-disable-next-line react/no-array-index-key

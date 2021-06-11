@@ -7,17 +7,13 @@ import { ResumeBlock } from '../../constants';
 
 const renderResumeSectionBlock = (
   props: Partial<ResumeSectionBlockProps> = {},
-): RenderResult => {
-  const { heading = 'Foo', subHeading = 'Bar', ...blockProps } = props;
-  return render(
+): RenderResult =>
+  render(
     <ResumeSectionBlock
-      heading={heading}
-      subHeading={subHeading}
       /* eslint-disable-next-line react/jsx-props-no-spreading */
-      {...blockProps}
+      {...props}
     />,
   );
-};
 
 // eslint-disable-next-line jest/expect-expect
 it('renders without crashing', () => {
@@ -45,12 +41,30 @@ const block: ResumeBlock = {
 
 it('renders heading', () => {
   const { getByText } = renderResumeSectionBlock(block);
-  expect(getByText(block.heading)).toBeInTheDocument();
+  expect(getByText(block.heading as string)).toBeInTheDocument();
+});
+
+it('does not render heading if none provided', () => {
+  const { getAllByRole } = renderResumeSectionBlock({
+    ...block,
+    heading: undefined,
+    subBlocks: undefined,
+  });
+  expect(getAllByRole('heading')).toHaveLength(1); // sub-heading is only header
 });
 
 it('renders sub-heading', () => {
   const { getByText } = renderResumeSectionBlock(block);
-  expect(getByText(block.subHeading)).toBeInTheDocument();
+  expect(getByText(block.subHeading as string)).toBeInTheDocument();
+});
+
+it('does not render sub-heading if none provided', () => {
+  const { getAllByRole } = renderResumeSectionBlock({
+    ...block,
+    subHeading: undefined,
+    subBlocks: undefined,
+  });
+  expect(getAllByRole('heading')).toHaveLength(1);
 });
 
 it('renders block list items for each block item provided', () => {
@@ -69,7 +83,7 @@ it('renders block list items for each block item provided', () => {
 it('renders sub-blocks if provided', () => {
   const { getByText } = renderResumeSectionBlock(block);
   block.subBlocks?.forEach((subBlock) => {
-    expect(getByText(subBlock.heading)).toBeInTheDocument();
-    expect(getByText(subBlock.subHeading)).toBeInTheDocument();
+    expect(getByText(subBlock.heading as string)).toBeInTheDocument();
+    expect(getByText(subBlock.subHeading as string)).toBeInTheDocument();
   });
 });
