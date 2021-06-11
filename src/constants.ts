@@ -124,7 +124,7 @@ interface WelcomeHeroContent {
 export const welcomeHeroContent: WelcomeHeroContent = {
   heading: 'Andrew Ware',
   subtitle:
-    'Senior software engineer, coding enthusiast, eater of food, mover, aspiring shaker.',
+    'Senior software engineer, code enthusiast, eater of food, mover, aspiring shaker.',
 };
 
 export const profilePhotoImg: ImgProps = {

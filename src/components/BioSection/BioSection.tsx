@@ -9,7 +9,7 @@ export interface BioSectionProps {
 
 const baseClassName = `${CLASS_NAME_BASE}__profile-image-section`;
 const CLASS_NAMES = {
-  base: baseClassName,
+  base: classNames(baseClassName, 'py-6'),
   content: classNames(`${baseClassName}__content`, 'has-text-centered'),
 };
 
