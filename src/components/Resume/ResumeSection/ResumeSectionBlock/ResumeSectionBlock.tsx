@@ -14,15 +14,18 @@ export interface ResumeSectionBlockProps extends ResumeSectionBlockPropsBase {
 
 const baseClassName = `${CLASS_NAME_BASE}-resume-section__block`;
 const CLASS_NAMES = {
-  base: baseClassName,
-  heading: classNames(`${baseClassName}__heading`, 'mb-1'),
-  subHeading: `${baseClassName}__sub-heading`,
+  base: classNames(baseClassName, 'mb-6'),
+  heading: classNames(`${baseClassName}__heading`, 'has-text-primary', 'mb-1'),
+  subHeading: classNames(
+    `${baseClassName}__sub-heading`,
+    'has-text-weight-light',
+  ),
   subBlock: `${baseClassName}__sub-block`,
 };
 
 const StyledResumeSectionBlockWrapper = styled.div`
   > .${CLASS_NAMES.subBlock} > .title {
-    &.is-5 {
+    &.is-4 {
       font-size: 1rem; /* 16px */
       font-weight: bold;
     }
@@ -42,12 +45,7 @@ const ResumeSectionBlock = ({
 }: ResumeSectionBlockProps): JSX.Element => (
   <div className={classNames(CLASS_NAMES.base, className)}>
     {heading && (
-      <Heading
-        className={CLASS_NAMES.heading}
-        renderAs="div"
-        role="heading"
-        size={5}
-      >
+      <Heading className={CLASS_NAMES.heading} renderAs="h4" size={4}>
         {heading}
       </Heading>
     )}

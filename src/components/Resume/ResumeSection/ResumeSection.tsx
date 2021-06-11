@@ -6,6 +6,7 @@ import {
   buildResumeBlockKey,
   ResumeSection as ResumeSectionPropsBase,
 } from '../constants';
+import PageBreak from '../../PageBreak/PageBreak';
 import ResumeSectionBlock from './ResumeSectionBlock/ResumeSectionBlock';
 
 export interface ResumeSectionProps extends ResumeSectionPropsBase {
@@ -15,6 +16,11 @@ export interface ResumeSectionProps extends ResumeSectionPropsBase {
 const baseClassName = `${CLASS_NAME_BASE}-resume__section`;
 const CLASS_NAMES = {
   base: baseClassName,
+  heading: classNames(
+    `${baseClassName}__heading`,
+    'has-text-success',
+    'has-text-weight-bold',
+  ),
 };
 
 const ResumeSection = ({
@@ -23,7 +29,10 @@ const ResumeSection = ({
   blocks,
 }: ResumeSectionProps): JSX.Element => (
   <Content className={classNames(CLASS_NAMES.base, className)}>
-    <Heading renderAs="h3">{heading}</Heading>
+    <Heading className={CLASS_NAMES.heading} renderAs="h3">
+      {heading}
+    </Heading>
+    <PageBreak />
     {blocks.map((block) => (
       <ResumeSectionBlock
         key={buildResumeBlockKey(block)}
