@@ -13,13 +13,10 @@ import styled from 'styled-components';
 import { CLASS_NAME_BASE, FooterLink, footerLinks } from '../../constants';
 import { createLinkKey, isLinkDataGatsbyLinkDef } from '../utils';
 import Icon from '../Icon';
+import PageBreak from '../PageBreak/PageBreak';
 
 const InlineFlex = styled.div`
   display: inline-flex;
-`;
-
-const PageBreak = styled.hr`
-  border-top: dotted 3px;
 `;
 
 const BottomLinksContainer = styled(Container)`
@@ -55,13 +52,7 @@ const CLASS_NAMES = {
   iconFullIconModifier: 'is-size-2',
   linkLabel: `${baseClassName}__link-label`,
   linkLabelFullIconModified: 'is-hidden-tablet',
-  pageBreak: classNames(
-    `${baseClassName}__page-break`,
-    'mt-0',
-    'mb-6',
-    'has-background-white',
-    'has-text-dark',
-  ),
+  pageBreak: classNames(`${baseClassName}__page-break`, 'mt-0', 'mb-6'),
 };
 
 const isAlignBottom = ({ align }: FooterLink): boolean => align === 'bottom';
