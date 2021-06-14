@@ -41,7 +41,7 @@ export const defaultFooterProps: FooterProps = {
 
 const baseClassName = `${CLASS_NAME_BASE}-footer`;
 const CLASS_NAMES = {
-  base: classNames(baseClassName, 'has-background-white', 'pb-6'),
+  base: classNames(baseClassName, 'has-background-white', 'pb-6', 'px-3'),
   container: classNames(`${baseClassName}__container`, 'is-max-desktop'),
   topContainerModifier: 'pt-6',
   bottomContainerModifier: 'mt-6',

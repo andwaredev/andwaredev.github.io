@@ -1,6 +1,6 @@
 import React from 'react';
-import classNames, { Value as ClassValue } from 'classnames';
 import { Container, Content, Hero } from 'react-bulma-components';
+import classNames, { Value as ClassValue } from 'classnames';
 import styled from 'styled-components';
 import { CLASS_NAME_BASE, profilePhotoImg } from '../../constants';
 

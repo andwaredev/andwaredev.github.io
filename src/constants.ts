@@ -7,6 +7,7 @@ import {
   faNpm,
 } from '@fortawesome/free-brands-svg-icons';
 import { faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import profileImg from './images/andrew_small.png';
 
 /* eslint-disable import/prefer-default-export */
 export const CLASS_NAME_BASE = 'andwaredev';
@@ -129,7 +130,7 @@ export const welcomeHeroContent: WelcomeHeroContent = {
 
 export const profilePhotoImg: ImgProps = {
   alt: 'Profile Photo',
-  src: 'https://bulma.io/images/placeholders/256x256.png',
+  src: profileImg,
 };
 
 export const bioSectionText =

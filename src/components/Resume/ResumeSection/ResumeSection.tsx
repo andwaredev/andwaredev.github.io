@@ -20,7 +20,9 @@ const CLASS_NAMES = {
     `${baseClassName}__heading`,
     'has-text-success',
     'has-text-weight-bold',
+    'mb-4',
   ),
+  pageBreak: classNames(`${baseClassName}__page-break`, 'mt-0'),
 };
 
 const ResumeSection = ({
@@ -32,7 +34,7 @@ const ResumeSection = ({
     <Heading className={CLASS_NAMES.heading} renderAs="h3">
       {heading}
     </Heading>
-    <PageBreak />
+    <PageBreak className={CLASS_NAMES.pageBreak} />
     {blocks.map((block) => (
       <ResumeSectionBlock
         key={buildResumeBlockKey(block)}
