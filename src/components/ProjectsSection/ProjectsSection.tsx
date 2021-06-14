@@ -22,6 +22,7 @@ const CLASS_NAMES = {
     'pt-6',
     'pb-6',
   ),
+  columns: classNames(`${baseClassName}__columns`, 'mx-0'),
   heading: classNames(`${baseClassName}__heading`, 'has-text-centered', 'mb-6'),
 };
 
@@ -34,7 +35,7 @@ const ProjectsSection = ({
       <Heading className={CLASS_NAMES.heading} renderAs="h2">
         Recent Projects
       </Heading>
-      <Columns>
+      <Columns className={CLASS_NAMES.columns}>
         {projects?.map(({ heading, ...projectProps }) => (
           <ProjectCard
             {...projectProps} /* eslint-disable-line react/jsx-props-no-spreading */
