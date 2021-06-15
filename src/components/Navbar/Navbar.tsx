@@ -14,7 +14,7 @@ import { createLinkKey, isLinkDataGatsbyLinkDef } from '../utils';
 import Icon from '../Icon';
 
 const BRAND_IMG_HEIGHT = 28;
-const BRAND_IMG_WIDTH = 112;
+const BRAND_IMG_WIDTH = 152;
 
 export interface NavbarProps
   extends ComponentPropsWithoutRef<typeof BulmaNavbar> {
