@@ -24,6 +24,7 @@ export interface ProjectCardProps extends ProjectCardPropsBase {
 const baseClassName = `${CLASS_NAME_BASE}__project-card`;
 const CLASS_NAMES = {
   base: baseClassName,
+  imgContainer: classNames(`${baseClassName}__img-container`, 'mb-4'),
 };
 
 const ProjectCard = ({
@@ -43,7 +44,7 @@ const ProjectCard = ({
     >
       <Card.Content className="hax-text-centered" textAlign="center">
         {img && (
-          <Media>
+          <Media className={CLASS_NAMES.imgContainer}>
             <Media.Item align="center">
               <Image
                 style={{ margin: 'auto' }}

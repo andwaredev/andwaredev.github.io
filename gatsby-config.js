@@ -29,5 +29,17 @@ module.exports = {
         exclude: /(node_modules|cache|public)/,
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: 'Andrew Ware',
+        short_name: 'Andrew Ware',
+        start_url: '/',
+        background_color: '#fff',
+        theme_color: '#485fc7',
+        display: 'standalone',
+        icon: 'src/images/icon.png',
+      },
+    },
   ],
 };

@@ -7,7 +7,11 @@ import {
   faNpm,
 } from '@fortawesome/free-brands-svg-icons';
 import { faCode, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import brandImg from './images/brand/brand.svg';
 import profileImg from './images/andrew_small.png';
+import uscisImg from './images/projects/uscis.png';
+import charterImg from './images/projects/charter.png';
+import tmobileImg from './images/projects/tmobile.png';
 
 /* eslint-disable import/prefer-default-export */
 export const CLASS_NAME_BASE = 'andwaredev';
@@ -113,8 +117,8 @@ export const navbarLinks: NavbarLink[] = [
 
 // TODO: use real brand asset
 export const navbarBrandImg: ImgProps = {
-  alt: 'Andrew Ware',
-  src: 'https://bulma.io/images/bulma-logo.png',
+  alt: 'Andrew Ware Brand Icon',
+  src: brandImg,
 };
 
 interface WelcomeHeroContent {
@@ -145,8 +149,8 @@ export interface ProjectCardProps {
 
 const uscisProject: ProjectCardProps = {
   img: {
-    alt: '64x64',
-    src: 'http://bulma.io/images/placeholders/128x128.png',
+    alt: 'USCIS Logo',
+    src: uscisImg,
   },
   heading: 'USCIS',
   subHeading: 'MyE-Verify',
@@ -156,8 +160,8 @@ const uscisProject: ProjectCardProps = {
 
 const charterProject: ProjectCardProps = {
   img: {
-    alt: '64x64',
-    src: 'http://bulma.io/images/placeholders/128x128.png',
+    alt: 'Charter Logo',
+    src: charterImg,
   },
   heading: 'Charter',
   subHeading: 'RADR',
@@ -167,8 +171,8 @@ const charterProject: ProjectCardProps = {
 
 const tMobileProject: ProjectCardProps = {
   img: {
-    alt: '64x64',
-    src: 'http://bulma.io/images/placeholders/128x128.png',
+    alt: 'T-Mobile Logo',
+    src: tmobileImg,
   },
   heading: 'T-Mobile',
   subHeading: 'Layer3 TV',
