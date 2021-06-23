@@ -137,8 +137,8 @@ export const profilePhotoImg: ImgProps = {
   src: profileImg,
 };
 
-export const bioSectionText =
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+export const bioSectionText = `
+I'm a software engineer based in Denver, Colorado. I'm a passionate learner and lover of the craft. I'm obsessed with discovering elegant solutions to new problems and absorbing knowledge from the teams I'm a part of. I want to build software that doesn't just work, but lasts, and is as fun for the next engineer to work on as it was for me to build.`;
 
 export interface ProjectCardProps {
   img?: ImgProps;
@@ -155,7 +155,7 @@ const uscisProject: ProjectCardProps = {
   heading: 'USCIS',
   subHeading: 'MyE-Verify',
   content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Redesigning the MyE-Verify website – which serves over 30 million users annually – with scalability, user friendliness, and code reusability in mind.',
 };
 
 const charterProject: ProjectCardProps = {
@@ -166,7 +166,7 @@ const charterProject: ProjectCardProps = {
   heading: 'Charter',
   subHeading: 'RADR',
   content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Created an internal application for large data set ingestion, mapping, and processing for catered advertising with re-rendering and query performance in focus.',
 };
 
 const tMobileProject: ProjectCardProps = {
@@ -177,7 +177,7 @@ const tMobileProject: ProjectCardProps = {
   heading: 'T-Mobile',
   subHeading: 'Layer3 TV',
   content:
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    'Created automated processes for subscription expiration, billing charges, and refunds consuming third-party APIs and saving over 4,000 manual hours annually.',
 };
 
 export const projects = [uscisProject, charterProject, tMobileProject];
