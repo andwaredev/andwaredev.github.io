@@ -23,7 +23,7 @@ const NotFound = ({ className }: NotFoundProps): JSX.Element => (
           <Heading renderAs="h1">Page Not Found</Heading>
           <Heading
             className={CLASS_NAMES.subtitle}
-            renderAs="p"
+            renderAs="div"
             size={5}
             subtitle
           >
