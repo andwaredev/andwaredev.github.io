@@ -1,3 +1,5 @@
-src/**/*.(js|ts)?(x):
+src/**/*.test.(js|ts)?(x):
   - yarn test
+
+src/**/*.(js|ts)?(x):
   - yarn lint:fix
