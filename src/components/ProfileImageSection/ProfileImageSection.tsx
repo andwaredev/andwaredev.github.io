@@ -5,9 +5,10 @@ import styled from 'styled-components';
 import { CLASS_NAME_BASE, profilePhotoImg } from '../../constants';
 
 const StyledFigure = styled.figure`
+  display: flex;
   margin: 0 auto;
   height: 256px;
-  text-align: center;
+  justify-content: center;
 `;
 
 const StyledImg = styled.img`

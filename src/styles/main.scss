@@ -8,4 +8,8 @@ $primary: $purple;
 $success: $turquoise;
 $link: $primary;
 
-@import 'node_modules/bulma/bulma.sass';
+@import 'node_modules/bulma/bulma';
+
+.container {
+    padding: 0 1rem;
+}
