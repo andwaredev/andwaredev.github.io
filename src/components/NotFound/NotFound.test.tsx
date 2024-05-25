@@ -3,7 +3,7 @@ import { render } from '@testing-library/react';
 import NotFound from './NotFound';
 
 it('renders without crashing', () => {
-  render(<NotFound />);
+  expect(() => render(<NotFound />)).not.toThrow();
 });
 
 it('sets custom className if provided', () => {
